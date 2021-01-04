@@ -1,0 +1,9 @@
+{% extends "csi_base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>Post Your Question Here</h1>
+<form method="POST">    {% csrf_token %}
+        {{ question_form|crispy }}
+            <input type="submit" value='post!' class="btn waves-effect waves-light"/>
+</form>
+{% endblock %}

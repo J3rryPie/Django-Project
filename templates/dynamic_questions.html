@@ -1,0 +1,24 @@
+{% extends "csi_base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>Question</h1>
+<h1> {{ con.title }} </h1>
+<h3>{{ con.ques }}
+   <!-- <p>Total Upvotes = {{testing.total_upvotes}}</p></h3> -->
+<h1>Answers given by your classmates:</h1>
+{% for con in q_id %}
+    <p>{{ con.answer }}</p>
+    <!--<li>{{ con.upvotes }}:   {{ con.answer }}</li>
+        <form method="POST">    {% csrf_token %}
+            {{ upvote_form|crispy }}
+    <input type="submit" value='upvote' />
+    </form>
+    <p>Total Upvotes:{{ a.total_upvotes }}</p> -->
+{% endfor %}
+<form method="POST">    {% csrf_token %}
+    {{ ans_form|crispy }}
+    <input type="submit" value='save!' />
+    </form>
+{% endblock %}
+
+

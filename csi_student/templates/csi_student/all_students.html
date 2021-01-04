@@ -1,0 +1,7 @@
+{% extends "csi_base.html" %}
+{% block content %}
+<h1>Whom Do You Wanna Discuss Your Project With?</h1>
+{% for con in object_list %}
+<h5> <a href="{% url 'about_me' con.id  %}">{{ con.uid }} : {{ con.name }} </a></h5>
+{% endfor %}
+{% endblock %}

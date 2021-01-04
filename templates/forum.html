@@ -1,0 +1,12 @@
+{% extends "csi_base.html" %}
+{% block content %}
+<h1>Forum</h1>
+<h3>Discuss with your classmate here!!</h3>
+<a href='create/'>To post a question:</a>
+{% for con in object_list %}
+    <p></p>
+    <li>
+    <a href='{{ con.id }}/'> {{ con.Question_title }}</a>
+    </li>
+{% endfor %}
+{% endblock %}

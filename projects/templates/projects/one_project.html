@@ -1,0 +1,22 @@
+<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+{% extends "csi_base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>Check This Project Out</h1>
+<p>{{ con.title }}</p>
+<p>{{ con.author }}</p>
+<p>{{ con.keywords }}</p>
+<a href="{{ con.file.url }}">DOWNLOAD PDF</a>
+{% for x in all %}
+   <li>{{ x.comments }}</li>
+{% endfor %}
+       <form method="POST">    {% csrf_token %}
+        {{ form|crispy }}
+            <input type="submit" value='post it!' class="btn waves-effect waves-light"/>
+        </form>
+{% endblock %}

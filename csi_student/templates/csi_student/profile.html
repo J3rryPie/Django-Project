@@ -1,0 +1,14 @@
+{% extends "csi_base.html" %}
+{% block content %}
+<h1>About me!</h1>
+<h2>Name : {{ con.name }}</h2>
+<img src="{{ con.profile_photo.url }}" height='235' width='235' alt="profile_pic">
+<h2>UID:{{ con.uid }}</h2>
+<h2>Grade:{{ con.grade }}</h2>
+<h2>Interests:{{ con.interests }}</h2>
+<h2>Points:{{ con.points }}</h2>
+<h2>Projects:</h2>
+{% for x in pro %}
+<li><a href="{% url 'one_project' x.id %}">{{ x }}</a></li>
+{% endfor %}
+{% endblock %}

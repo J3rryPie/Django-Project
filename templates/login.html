@@ -1,0 +1,13 @@
+{% extends "csi_base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <br>
+    <form method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+         <button style="background-color:#FFFFF; color:blue" type="submit">Login</button>
+    </form>
+
+    If you don't already have an account <a href="../register" target="blank"><strong>Register</strong></a> instead.
+
+{% endblock %}

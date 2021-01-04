@@ -1,0 +1,8 @@
+{% extends "csi_base.html" %}
+{% block content %}
+<h1>Chat Here</h1>
+{% for con in object_list %}
+<h5> {{ con.name }} : {{ con.name }} </h5>
+
+{% endfor %}
+{% endblock %}

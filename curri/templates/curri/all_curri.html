@@ -1,0 +1,16 @@
+{% extends "csi_base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>Curriculum</h1>
+<form method="GET" action="/search">
+    {{ form|crispy }}
+    <input type="text" value='Search' name="q" id="id_q"/>
+</form>
+{% for coni in con %}
+<li>Topics : {{ coni.title }}</li>
+<br>
+{% endfor %}
+<script type="text/javascript">
+    document.getElementById("id_q").value ="{{query}}"
+</script>
+{% endblock %}

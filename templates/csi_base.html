@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/styles.css' %}">
+    <title>Online Portal</title>
+</head>
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+          {% if user.is_authenticated %}
+             <li><a href="{% url 'forum_view' %}">Forum</a></li>
+        <li><a href="{% url 'all_projects' %}">Projects</a></li>
+        <li><a href="{% url 'all_students' %}">Profile</a></li>
+          <li><a href="{% url 'logout_view' %}">Logout</a></li>
+        {% else %}
+            <li><a href="{% url 'login_view' %}">Login</a></li>
+            <li><a href="{% url 'register_view' %}">Register</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+  {% if messages %}
+        {% for message in messages %}
+          <script>M.toast({html: "{{message}}", classes: 'blue rounded', displayLength:2000});</script>
+        {% endfor %}
+  {% endif %}
+
+    {% block content %}
+    {% endblock  %}
+</body>
+</html>
